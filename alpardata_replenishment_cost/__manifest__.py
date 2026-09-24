@@ -12,7 +12,9 @@
         'product_replenishment_cost_sale_margin',
         'product_planned_price',
     ],
-    'data': [],  # la tarea 6 agrega seguridad y vistas
+    'data': [
+        'security/ir.model.access.csv',
+    ],
     'pre_init_hook': 'pre_init_hook',
     'installable': True,
     'application': False,

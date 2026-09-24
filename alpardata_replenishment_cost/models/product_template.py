@@ -74,3 +74,14 @@ class ProductTemplate(models.Model):
                 'supplier_price': price,
                 'supplier_currency_id': seller.currency_id if seller else empty_currency,
             })
+
+    def action_view_price_history(self) -> dict:
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Historial de precios de proveedor',
+            'res_model': 'product.supplierinfo.price.history',
+            'view_mode': 'list',
+            'domain': [('product_tmpl_id', '=', self.id)],
+        }
+
