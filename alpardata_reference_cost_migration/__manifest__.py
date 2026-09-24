@@ -1,0 +1,15 @@
+{
+    'name': 'AlparData - Migración Costo de Referencia → Adhoc',
+    'version': '19.0.1.0.0',
+    'summary': 'Migración de un solo uso: listas e historial de alpardata_purchase_reference_cost al costo de reposición de Adhoc',
+    'author': 'AlparData',
+    'website': 'https://alpardata.com.ar',
+    'category': 'Hidden',
+    'license': 'AGPL-3',
+    'depends': ['alpardata_replenishment_cost', 'alpardata_purchase_reference_cost'],
+    'data': [],
+    'post_init_hook': 'post_init_hook',
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}
