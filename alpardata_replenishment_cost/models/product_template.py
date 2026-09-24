@@ -10,6 +10,30 @@ from .company_hierarchy import company_ranks, seller_rank
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    use_own_margin = fields.Boolean(
+        string='Margen propio',
+        help='Si está tildado, el producto conserva su margen aunque cambie el de la categoría.',
+    )
+    sale_margin = fields.Float(
+        compute='_compute_sale_margin',
+        store=True,
+        readonly=False,
+        precompute=True,
+    )
+
+    @api.depends('categ_id.sale_margin', 'use_own_margin')
+    def _compute_sale_margin(self) -> None:
+        for rec in self:
+            if not rec.use_own_margin:
+                rec.sale_margin = rec.categ_id.sale_margin
+            else:
+                rec.sale_margin = rec.sale_margin
+
+    @api.onchange('sale_margin')
+    def _onchange_sale_margin_own(self) -> None:
+        if self.sale_margin != self.categ_id.sale_margin:
+            self.use_own_margin = True
+
     @api.depends_context('company')
     @api.depends(
         'seller_ids.net_price', 'seller_ids.currency_id', 'seller_ids.company_id',

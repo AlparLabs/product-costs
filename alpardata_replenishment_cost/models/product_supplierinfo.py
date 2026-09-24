@@ -26,6 +26,8 @@ class ProductSupplierinfo(models.Model):
                 rec.replenishment_cost_rule_id = (
                     rec.partner_id.commercial_partner_id.replenishment_cost_rule_id
                 )
+            else:
+                rec.replenishment_cost_rule_id = rec.replenishment_cost_rule_id
 
     @api.onchange('replenishment_cost_rule_id')
     def _onchange_replenishment_cost_rule_id_own(self) -> None:
