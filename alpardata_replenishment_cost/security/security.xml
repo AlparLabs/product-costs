@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_supplierinfo_price_history_company" model="ir.rule">
+        <field name="name">Historial de precios de proveedor: multi-empresa</field>
+        <field name="model_id" ref="model_product_supplierinfo_price_history"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

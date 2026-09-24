@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_supplierinfo_form_own_rule" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.own.rule</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product_replenishment_cost.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <field name="replenishment_cost_rule_id" position="after">
+                <field name="use_own_rule"/>
+            </field>
+            <xpath expr="//sheet/group" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_price_history" type="object"
+                            class="oe_stat_button" icon="fa-history"
+                            groups="purchase.group_purchase_user">
+                        <field name="price_history_count" widget="statinfo" string="Historial"/>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_list_own_rule" model="ir.ui.view">
+        <field name="name">product.supplierinfo.list.own.rule</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product_replenishment_cost.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="replenishment_cost_rule_id" position="after">
+                <field name="use_own_rule" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

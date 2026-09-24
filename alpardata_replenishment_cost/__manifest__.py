@@ -14,6 +14,12 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
+        'views/res_partner_views.xml',
+        'views/product_supplierinfo_views.xml',
+        'views/product_template_views.xml',
+        'views/product_category_views.xml',
+        'views/product_supplierinfo_price_history_views.xml',
     ],
     'pre_init_hook': 'pre_init_hook',
     'installable': True,
