@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.log
+*.swp
+__pycache__/
+.idea/
+.vscode/
+*.egg-info/
+.DS_Store
