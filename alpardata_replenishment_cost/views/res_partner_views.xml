@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_replenishment_rule" model="ir.ui.view">
+        <field name="name">res.partner.form.replenishment.rule</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="purchase.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='purchase']" position="inside">
+                <field name="replenishment_cost_rule_id" groups="purchase.group_purchase_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

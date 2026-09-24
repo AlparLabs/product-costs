@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_price_history" model="ir.ui.view">
+        <field name="name">product.template.form.price.history</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_price_history" type="object"
+                        class="oe_stat_button" icon="fa-history"
+                        string="Historial de precios"
+                        groups="purchase.group_purchase_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_form_own_margin" model="ir.ui.view">
+        <field name="name">product.template.form.own.margin</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product_planned_price.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="sale_margin" position="after">
+                <field name="use_own_margin" string="propio" class="oe_inline"
+                       invisible="list_price_type != 'by_margin'"/>
+            </field>
+        </field>
+    </record>
+</odoo>
